@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js">
+</script>
+<script type="text/javascript">
+function testPost(){
+	$.ajax({
+        url: "/teenlong/src/v1/house/house.php",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+        	landlordId:1,
+		    PurposeId :1,
+		    ShowPic:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAXCAYAAAAcP/9qAAAAUklEQVRIie2UsQ0AMAjDGsQLHfv/mVQIdekByQBeGC0PBL5PLAGmkErFrnILi6NZcT+xR9R+vMtC+ccFAKrYUsiWJlNMQ/jHpFB8M9FvMkdM4wIeRgqDN9nY6AAAAABJRU5ErkJggg==',
+		    Area:1,
+		    DistrictId:1,
+		    Title:'#房屋题目',
+		    Latitude:1.8,
+		    Longitude:1.8,
+		    Address:'#房屋详细地址',
+		    Introduce:'#房屋介绍',
+		    RoomNumber:1,
+		    LivingRoomNumber:1,
+		    BathroomNumber:1,
+		    KitchenNumber:1,
+		    BalconyNumber:1,
+		    PeopleNumber:1,
+		    DistrictText:'#房屋所在地区名称',
+		    RentType:0,
+		    Deposit:0,
+		    Deadline:'2017-04-01 11:26:00'
+        },
+        success: function(data,status,xhr) {
+        },
+        error: function(data) {
+            alert(JSON.parse(data).Error);
+            console.log(data);
+        }
+    });
+}
+
+function testDelete(){
+	$.ajax({
+        url: "/teenlong/src/v1/house/house.php",
+        type: 'DELETE',
+        dataType: 'json',
+        data: {
+        	Type:0,
+        	Search:{
+        		Id:'18+19+20+21+22'
+        	}
+        },
+        success: function(data,status,xhr) {
+        },
+        error: function() {
+        }
+    });
+}
+
+function testPut(){
+	$.ajax({
+        url: "/teenlong/src/v1/house/house.php",
+        type: 'PUT',
+        dataType: 'json',
+        data: {
+        	Type:0,
+        	Id:'27',
+        	Update:{
+        		landlordId:2,
+			    PurposeId :2,
+			    ShowPic:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAA/ElEQVQYlU1QAW4DMQgzkNy13TRt79i/94r9qeqk6XbJBQZEVZsIkUi2Maav708jMlBRkBAAxWGAKUBYIbZgNMHl/AGutYLIQcYJMCOwevk/Kui9d4wxwCQMsOB+zCx7wMjmvy6Cfd/ArbVUNuJU9YeDeJaTgrD6dLWOos7kJ1WnJUhoEg1h/sDq6hwjQlnpYSGWzKUDqAobza24tTvw2XMuHL6DS+r4I8ns57GUv6NSWyco+rZtuLycUYQrMLYYOEfTJEkk5FVdaPjyt59f8PV6g0hFoZKBRd4u5rka+qFoXVHLCfufory9vucoR00g6UzBZi4K8XvCUgr+AYLiiclpN/nJAAAAAElFTkSuQmCC',
+			    Area:2,
+			    DistrictId:2,
+			    Title:'#房屋题目2',
+			    Latitude:3.6,
+			    Longitude:3.6,
+			    Address:'#房屋详细地址2',
+			    Introduce:'#房屋介绍2',
+			    RoomNumber:2,
+			    LivingRoomNumber:2,
+			    BathroomNumber:2,
+			    KitchenNumber:2,
+			    BalconyNumber:2,
+			    PeopleNumber:2,
+			    DistrictText:'#房屋所在地区名称2',
+			    RentType:1,
+			    Deposit:1,
+			    Deadline:'2017-04-01 11:26:08'
+        	}
+        	
+        },
+        success: function(data) {
+        },
+        error: function() {
+        }
+    });
+
+/*	$.ajax({
+        url: "/teenlong/src/v1/house/house.php",
+        type: 'PUT',
+        dataType: 'json',
+        data: {
+        	Type:1,
+        	Id:'25',
+        	Update:{
+        		IsThroughAudit:2
+        	}
+        	
+        },
+        success: function(data,status,xhr) {
+        },
+        error: function() {
+        }
+    });*/
+
+    /*$.ajax({
+        url: "/teenlong/src/v1/house/house.php",
+        type: 'PUT',
+        dataType: 'json',
+        data: {
+        	Type:2,
+        	Id:'25+26',
+        	Update:{
+        		Deadline:'2019-12-10 00:00:00'
+        	}
+        	
+        },
+        success: function(data,status,xhr) {
+        },
+        error: function() {
+        }
+    });*/
+}
+
+function testGet(){
+	$.ajax({
+        url: "/teenlong/src/v1/house/house.php",
+        type: 'GET',
+        dataType: 'json',
+        data: {
+        	Type:0,
+        	Page:1,
+        	PageSize:10,
+        	Keys:'Id+'+
+			    'landlordId+'+
+			    'PurposeId+'+
+			    'ShowPicUrl+'+
+			    'Area+'+
+			    'DistrictId+'+
+			    'IsThroughAudit+'+
+			    'Title+'+
+			    'Latitude+'+
+			    'Longitude+'+
+			    'Address+'+
+			    'Introduce+'+
+			    'RoomNumber+'+
+			    'LivingRoomNumber+'+
+			    'BathroomNumber+'+
+			    'KitchenNumber+'+
+			    'BalconyNumber+'+
+			    'PeopleNumber+'+
+			    'RentType+'+
+			    'Deposit+'+
+			    'Deadline'
+        		,
+        	Search:{
+        		Id:''
+        	}
+        },
+        success: function(data,status,xhr) {
+        	console.log(xhr.status);
+        },
+        error: function() {
+        }
+    });
+}
+
+//testPost();
+//testDelete();
+//testPut();
+//testGet();
+
+</script>
